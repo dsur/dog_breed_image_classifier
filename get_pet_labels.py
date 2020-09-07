@@ -3,7 +3,7 @@
 # */AIPND-revision/intropyproject-classify-pet-images/get_pet_labels.py
 #                                                                             
 # PROGRAMMER: 
-# DATE CREATED:                                  
+# DATE CREATED:  Douglas Sur                                
 # REVISED DATE: 
 # PURPOSE: Create the function get_pet_labels that creates the pet labels from 
 #          the image's filename. This function inputs: 
@@ -40,43 +40,47 @@ def get_pet_labels(image_dir):
       List. The list contains for following item:
          index 0 = pet image label (string)
     """
+    print("get_pet_label.py(", image_dir, ")")
     # Replace None with the results_dic dictionary that you created with this
     # function
-    
+
     # Retriev the filenames from folder pet_images/
     filename_list = listdir(image_dir)
-       
+
     # creates empty dictionary named results_dic
     results_dic = dict()
-    
+
     # determies number of items in dictionary
     items_in_dic = len(results_dic)
-#    print("\nEmpty Dictionary results_dic - n items =", items_in_dic)
-    
+    #    print("\nEmpty Dictionary results_dic - n items =", items_in_dic)
+
     # adds new key-value pairs to dictionary ONLY when key doesn't already exist. this dictionary's value is
     # a list that contains only one item - the pet image label
     # Print 10 of the filenames from folder pet_images/
-#    print("\nPrint 10 filenames from folder pet_images/")
-    for idx in range(0,len(filename_list),1):
-#        print("{:2d} file: {:>25}".format(idx +1, filename_list[idx]))
+    #    print("\nPrint 10 filenames from folder pet_images/")
+    for idx in range(0, len(filename_list), 1):
+        #        print("{:2d} file: {:>25}".format(idx +1, filename_list[idx]))
         if filename_list[idx] not in results_dic:
-            low_pet_image = filename_list[idx].lower()
-            word_list_pet_image = low_pet_image.split("_")
-            pet_name = ""
-#            print("\nword_list_pet_image:",word_list_pet_image)
-            for word in word_list_pet_image:
-                if word.isalpha():
-                    pet_name += word + " "
-                
-            pet_name = pet_name.strip()
-#            print("\npet_name:",pet_name)
-            results_dic[filename_list[idx]] = pet_name
-#            print("for loop Fileame=", filename_list[idx], "    Label=",results_dic[filename_list[idx]])
-            
-    #Iterating through a dictionary printing all keys & their associated values
-    #print("\nPrinting all key-value pairs in dictionary results_dic:")
-    #for key in results_dic:
-    #    print("Filename=", key, "   Pet Label=", results_dic[key])
+            #  Check for .xxxx filenames
+            if not filename_list[idx].startswith("."):
+                # . print("filename_list[idx]:",filename_list[idx])
+                low_pet_image = filename_list[idx].lower()
+                word_list_pet_image = low_pet_image.split("_")
+                pet_name = ""
+                #            print("\nword_list_pet_image:",word_list_pet_image)
+                for word in word_list_pet_image:
+                    if word.isalpha():
+                        pet_name += word + " "
 
+                pet_name = pet_name.strip()
+                #            print("\npet_name:",pet_name)
+                # . results_dic[filename_list[idx]] = pet_name 9/6/2020
+                results_dic[filename_list[idx]] = [pet_name.strip()]
+                #  print("for loop Fileame=", filename_list[idx], "    Label=",results_dic[filename_list[idx]])
+
+    # Iterating through a dictionary printing all keys & their associated values
+    # print("\nPrinting all key-value pairs in dictionary results_dic:")
+    # for key in results_dic:
+    #     print("Filename=", key, "   Pet Label=", results_dic[key][0])
+    print("get_pet_labels.py>")
     return results_dic
-

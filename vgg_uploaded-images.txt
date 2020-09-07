@@ -1,0 +1,86 @@
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = vgg 
+ dogfile = dognames.txt
+get_pet_label.py
+get_pet_labels.py>
+
+Pet Image Label Dictionary has 4 key-value pairs.
+Below are 4 of them:
+ 1 key:                Boxer_02426.jpg  label:                          b
+ 2 key:               coffee_mug01.jpg  label:                          c
+ 3 key:                     cat_01.jpg  label:                          c
+ 4 key:                   Boxer_01.jpg  label:                          b
+classify_images.py
+get_pet_label.py
+get_pet_labels.py>
+classify_images.py>
+
+     MATCH:
+
+               Boxer_02426.jpg: 
+Real:                      boxer   Classifier:                          boxer
+
+              coffee_mug01.jpg: 
+Real:                     coffee   Classifier:                     coffee mug
+
+                  Boxer_01.jpg: 
+Real:                      boxer   Classifier:                          boxer
+
+ NOT A MATCH:
+
+                    cat_01.jpg: 
+Real:                        cat   Classifier:                           lynx
+
+# Total Images 4 # Matches: 3 # NOT Matches: 1
+adjust_results4_isadog.py
+dogfile: dognames.txt
+adjust_results4_isadog.py>
+
+     MATCH:
+
+               Boxer_02426.jpg: 
+Real:                      boxer   Classifier:                          boxer  
+PetLabelDog: 1  ClassLabelDog: 1
+
+              coffee_mug01.jpg: 
+Real:                     coffee   Classifier:                     coffee mug  
+PetLabelDog: 0  ClassLabelDog: 0
+
+                  Boxer_01.jpg: 
+Real:                      boxer   Classifier:                          boxer  
+PetLabelDog: 1  ClassLabelDog: 1
+
+ NOT A MATCH:
+
+                    cat_01.jpg: 
+Real:                        cat   Classifier:                           lynx  
+PetLabelDog: 0  ClassLabelDog: 0
+
+# Total Images 4 # Matches: 3 # NOT Matches: 1
+calculates_results_stat.py
+calculates_results_stat.py>
+
+ ** Statistics from calculates_results_stats() function:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog:  50.0 Pct Corr NOTdog:  50.0  Pct Corr Breed:  50.0
+
+ ** Check Statistics - calculated from this function as a check:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed: 100.0
+print_results.py
+CNN Model Architecture:  None
+Number of Images: 4
+Number of "Not-a" Dog Images: 2
+Number of Dog Images: 2
+% Correct "Not-a" Dog: 50.0 %
+% Correct Dogs: 50.0 %
+% Correct Breed: 50.0 %
+% Match (optional - this includes both dogs and not-a dog): 75.0 %
+Incorrect Dog: coffee
+Incorrect Dog: cat
+Incorrect Breed: coffee mug
+Incorrect Breed: lynx
+print_results.py>
+
+** Total Elapsed Runtime: 0:0:3.7539613246917725

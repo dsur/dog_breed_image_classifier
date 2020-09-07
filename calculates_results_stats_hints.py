@@ -154,7 +154,7 @@ def calculates_results_stats(results_dic):
     #           the number of correctly classified dog images('n_correct_dogs')
     #           divided by the number of dog images('n_dogs_img'). This result 
     #           will need to be multiplied by 100.0 to provide the percentage.
-    #    
+    #     
     # Calculates % correct dogs
     results_stats_dic['pct_correct_dogs'] = 0.0
 
