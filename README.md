@@ -3,7 +3,7 @@
 ## Prerequisites:
 - Operating system: Any OS 
 - Framework infrastructure: Python 3.7+
-- Knowledge: This was taken from a class project I did on Udacity.com.  There is a sample run_models_batch.sh shell script that runs some samples. You can take a look at the script to see what calls what.  Good Luck!
+- Knowledge: This was taken from a class project I did on Udacity.com.  There is a sample run_models_batch.sh shell script that runs some samples. You can take a look at the script to see what calls what.  It runs 3 different convolutional neural networks (CNN) and spits out the output to a text file.
 
 ## Usage:
 sh run_models_batch.sh
